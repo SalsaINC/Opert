@@ -511,46 +511,74 @@ function createProductCard(item) {
 ========================= */
 
 function renderProducts() {
+  sectionTitle.textContent = activeCategory;
+  productsEl.innerHTML = "";
 
-  sectionTitle.textContent =
-    activeCategory;
+  if (activeCategory === "پیتزا") {
 
+    const sections = [
+      menu["پیتزا"].single,
+      menu["پیتزا"].double
+    ];
 
-  const items =
-    getVisibleProducts();
+    let totalItems = 0;
 
+    sections.forEach(section => {
 
-  productsEl.innerHTML =
-    "";
+      const title = document.createElement("h3");
+      title.className = "pizza-section-title";
+      title.textContent = section.title;
 
+      productsEl.appendChild(title);
 
-  emptyState.hidden =
-    items.length !== 0;
+      let items = section.items || [];
 
+      if (searchTerm.trim()) {
+        const query = searchTerm
+          .trim()
+          .toLocaleLowerCase("fa-IR");
+
+        items = items.filter(item => {
+          const text =
+            `${item.name} ${item.description}`
+              .toLocaleLowerCase("fa-IR");
+
+          return text.includes(query);
+        });
+      }
+
+      items.forEach(item => {
+        productsEl.appendChild(
+          createProductCard(item)
+        );
+      });
+
+      totalItems += items.length;
+    });
+
+    emptyState.hidden = totalItems !== 0;
+
+    itemCount.textContent = totalItems
+      ? `${toPersianNumber(totalItems)} مورد`
+      : "";
+
+    return;
+  }
+
+  const items = getVisibleProducts();
+
+  emptyState.hidden = items.length !== 0;
 
   items.forEach(item => {
-
     productsEl.appendChild(
       createProductCard(item)
     );
-
   });
 
-
-  if (items.length) {
-
-    itemCount.textContent =
-      `${toPersianNumber(items.length)} مورد`;
-
-  } else {
-
-    itemCount.textContent =
-      "";
-
-  }
-
+  itemCount.textContent = items.length
+    ? `${toPersianNumber(items.length)} مورد`
+    : "";
 }
-
 
 /* =========================
    تبدیل اعداد به فارسی
