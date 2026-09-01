@@ -1,5 +1,6 @@
 /* =========================================================
    OPERT CAFE - MENU
+   نسخه فعلی
 ========================================================= */
 
 
@@ -38,7 +39,7 @@ const categories = [
 
 
 /* =========================================================
-   ساخت منو
+   ساخت اولیه منو
 ========================================================= */
 
 const menu = {};
@@ -160,10 +161,6 @@ menu["آبمیوه"] = [
 
 menu["پیتزا"] = {
 
-  /* -------------------------
-     تک نفره
-  ------------------------- */
-
   single: {
 
     title: "پیتزاهای تک نفره",
@@ -222,10 +219,6 @@ menu["پیتزا"] = {
     ]
   },
 
-
-  /* -------------------------
-     دو نفره
-  ------------------------- */
 
   double: {
 
@@ -308,7 +301,7 @@ menu["اسموتی"] = [
   {
     name: "ردکولر",
     description:
-      "آب لیمو تازه - میکس چای ترش - فیله پرتقال - شاتوت",
+      "آبلیمو تازه - میکس چای ترش - فیله پرتقال - شاتوت",
     price: "۲۸۹,۰۰۰ تومان",
     image: ""
   },
@@ -349,24 +342,596 @@ menu["اسموتی"] = [
 
 
 /* =========================================================
-   تست تعداد پیتزاها
+   بشقاب اصلی
 ========================================================= */
 
-console.log(
-  "پیتزاهای تک نفره:",
-  menu["پیتزا"].single.items.length
-);
+menu["بشقاب اصلی"] = [
 
-console.log(
-  "پیتزاهای دو نفره:",
-  menu["پیتزا"].double.items.length
-);
+  {
+    name: "چیکن استیک",
+    description:
+      "سینه مرغ - هویج - فلفل دلمه - …",
+    price: "۱,۱۳۹,۰۰۰ تومان",
+    image: ""
+  },
 
-console.log(
-  "مجموع پیتزاها:",
-  menu["پیتزا"].single.items.length +
-  menu["پیتزا"].double.items.length
-);
+  {
+    name: "فیله مرغ سوخاری",
+    description:
+      "مرغ سوخاری - هویج - فلفل دلمه - …",
+    price: "۱,۱۹۹,۰۰۰ تومان",
+    image: ""
+  }
+
+];
+
+
+/* =========================================================
+   بستنی
+========================================================= */
+
+menu["بستنی"] = [
+
+  {
+    name: "Happy Ice Cream",
+    description:
+      "بستنی وانیل - بستنی شکلاتی تکه‌ای - بستنی شاتوت - ژله - خامه - مارشملو",
+    price: "۳۷۰,۰۰۰ تومان",
+    image: ""
+  }
+
+];
+
+
+/* =========================================================
+   قهوه سرد
+========================================================= */
+
+menu["قهوه سرد"] = {
+
+  espressoBar: {
+
+    title: "اسپرسو بار",
+
+    items: [
+
+      {
+        name: "ایس اسپرسو",
+        description: "اسپرسو - یخ",
+        price: "۲۱۵,۰۰۰ تومان",
+        image: ""
+      },
+
+      {
+        name: "ایس امریکانو",
+        description: "",
+        price: "۲۱۵,۰۰۰ تومان",
+        image: ""
+      },
+
+      {
+        name: "ایس لاته",
+        description: "",
+        price: "۲۱۹,۰۰۰ تومان",
+        image: ""
+      },
+
+      {
+        name: "ایس لاته طعم دار",
+        description: "",
+        price: "۲۶۵,۰۰۰ تومان",
+        image: ""
+      },
+
+      {
+        name: "ایس موکا",
+        description: "",
+        price: "۲۶۹,۰۰۰ تومان",
+        image: ""
+      },
+
+      {
+        name: "ایس کارامل ماکیاتو",
+        description: "",
+        price: "۲۷۵,۰۰۰ تومان",
+        image: ""
+      },
+
+      {
+        name: "آفوگاتو",
+        description: "",
+        price: "۲۵۰,۰۰۰ تومان",
+        image: ""
+      },
+
+      {
+        name: "آفوگاتو نوتلا",
+        description: "",
+        price: "۲۸۰,۰۰۰ تومان",
+        image: ""
+      },
+
+      {
+        name: "ایس دمی رگولار",
+        description: "",
+        price: "۲۱۵,۰۰۰ تومان",
+        image: ""
+      }
+
+    ]
+  },
+
+
+  matchaBar: {
+
+    title: "ماچا بار",
+
+    items: [
+
+      {
+        name: "ایس ماچا لاته",
+        description: "",
+        price: "۱۹۵,۰۰۰ تومان",
+        image: ""
+      },
+
+      {
+        name: "ایس ماچا لاته انبه",
+        description: "",
+        price: "۳۶۰,۰۰۰ تومان",
+        image: ""
+      },
+
+      {
+        name: "ایس ماچا نارگیل",
+        description: "",
+        price: "۲۴۵,۰۰۰ تومان",
+        image: ""
+      }
+
+    ]
+  }
+
+};
+
+
+/* =========================================================
+   ساندویچ
+========================================================= */
+
+menu["ساندویچ"] = [
+
+  {
+    name: "ساندویچ گوشت و پیازچه",
+    description:
+      "سس الفردو - پنیر موزارلا",
+    price: "۹۹۹,۰۰۰ تومان",
+    image: "",
+    featured: true
+  },
+
+  {
+    name: "ساندویچ مرغ گریل با سس چیلی تای",
+    description:
+      "نان مخصوص اوپرت - سینه مرغ - برش پنیر کبابی - روکولا",
+    price: "۸۸۹,۰۰۰ تومان",
+    image: "",
+    featured: true
+  },
+
+  {
+    name: "هات داگ مجاری",
+    description: "",
+    price: "ناموجود",
+    image: "",
+    unavailable: true
+  }
+
+];
+
+
+/* =========================================================
+   قهوه گرم
+========================================================= */
+
+menu["قهوه گرم"] = {
+
+  espresso: {
+
+    title: "اسپرسو",
+
+    items: [
+
+      {
+        name: "اسپرسو ۵۰/۵۰",
+        description: "",
+        price: "۱۷۵,۰۰۰ تومان",
+        image: ""
+      },
+
+      {
+        name: "اسپرسو ۱۰۰٪ عربیکا",
+        description: "",
+        price: "۱۹۹,۰۰۰ تومان",
+        image: ""
+      },
+
+      {
+        name: "آمریکانو",
+        description: "",
+        price: "۲۱۹,۰۰۰ تومان",
+        image: ""
+      }
+
+    ]
+  },
+
+
+  brewedCoffee: {
+
+    title: "قهوه دمی",
+
+    items: [
+
+      {
+        name: "دمی رگولار",
+        description: "",
+        price: "۲۱۵,۰۰۰ تومان",
+        image: ""
+      },
+
+      {
+        name: "قهوه دمی فیلتری",
+        description: "",
+        price: "۳۱۵,۰۰۰ تومان",
+        image: ""
+      },
+
+      {
+        name: "قهوه دمی فیلتری تخصصی",
+        description: "",
+        price: "۳۹۵,۰۰۰ تومان",
+        image: ""
+      },
+
+      {
+        name: "قهوه ترک",
+        description: "",
+        price: "۲۱۵,۰۰۰ تومان",
+        image: ""
+      }
+
+    ]
+  },
+
+
+  milkCoffee: {
+
+    title: "شیر قهوه",
+
+    items: [
+
+      {
+        name: "لاته",
+        description: "",
+        price: "۲۵۵,۰۰۰ تومان",
+        image: ""
+      },
+
+      {
+        name: "لاته نوتلا",
+        description: "",
+        price: "۲۸۵,۰۰۰ تومان",
+        image: ""
+      },
+
+      {
+        name: "لاته طعم دار",
+        description: "",
+        price: "۲۶۵,۰۰۰ تومان",
+        image: ""
+      },
+
+      {
+        name: "موکا",
+        description: "",
+        price: "۲۶۵,۰۰۰ تومان",
+        image: ""
+      },
+
+      {
+        name: "کاپوچینو",
+        description: "",
+        price: "۲۳۰,۰۰۰ تومان",
+        image: ""
+      },
+
+      {
+        name: "لاته لوتوس",
+        description: "",
+        price: "۲۸۵,۰۰۰ تومان",
+        image: ""
+      },
+
+      {
+        name: "کارامل ماکیاتو",
+        description: "",
+        price: "۲۷۵,۰۰۰ تومان",
+        image: ""
+      },
+
+      {
+        name: "کورتادو",
+        description: "",
+        price: "۱۷۷,۰۰۰ تومان",
+        image: ""
+      }
+
+    ]
+  },
+
+
+  syrups: {
+
+    title: "سیروپ‌ها",
+
+    items: [
+
+      {
+        name: "وانیل",
+        description: "",
+        price: "۵۰,۰۰۰ تومان",
+        image: ""
+      },
+
+      {
+        name: "کارامل",
+        description: "",
+        price: "۵۰,۰۰۰ تومان",
+        image: ""
+      },
+
+      {
+        name: "کوکی شکلاتی",
+        description: "",
+        price: "۵۰,۰۰۰ تومان",
+        image: ""
+      },
+
+      {
+        name: "لوندر",
+        description: "",
+        price: "۵۰,۰۰۰ تومان",
+        image: ""
+      },
+
+      {
+        name: "شکلات",
+        description: "",
+        price: "۵۰,۰۰۰ تومان",
+        image: ""
+      },
+
+      {
+        name: "فندق",
+        description: "",
+        price: "۵۰,۰۰۰ تومان",
+        image: ""
+      }
+
+    ]
+  }
+
+};
+
+
+/* =========================================================
+   برگر
+========================================================= */
+
+menu["برگر"] = [
+
+  {
+    name: "برگر کاراملی",
+    description:
+      "گوشت برگر - سس قارچ - پیاز کاراملی",
+    price: "۱,۰۹۹,۰۰۰ تومان",
+    image: ""
+  },
+
+  {
+    name: "برگر کلاسیک",
+    description:
+      "گوشت برگر - کاهو فرانسوی - …",
+    price: "۱,۰۲۹,۰۰۰ تومان",
+    image: ""
+  },
+
+  {
+    name: "برگر ژامبون با پنیر گودا",
+    description:
+      "گوشت برگر - کاهو فرانسوی - …",
+    price: "۱,۰۹۹,۰۰۰ تومان",
+    image: ""
+  }
+
+];
+
+
+/* =========================================================
+   چای و دمنوش
+========================================================= */
+
+menu["چای و دمنوش"] = [
+
+  {
+    name: "چای دمی (برگاموت)",
+    description:
+      "چای دم‌کرده سیلانی - همراه کوکی - نبات - قند - گل محمدی - هل و دارچین",
+    price: "۱۲۵,۰۰۰ تومان",
+    image: ""
+  },
+
+  {
+    name: "چای استکانی",
+    description: "",
+    price: "۹۵,۰۰۰ تومان",
+    image: ""
+  },
+
+  {
+    name: "لیمو زنجبیل",
+    description:
+      "زنجبیل - لیمو - نعنا - لمون‌گرس - بوته آویشن - چای سبز",
+    price: "۱۸۶,۰۰۰ تومان",
+    image: ""
+  },
+
+  {
+    name: "میوه‌های قرمز",
+    description:
+      "کویین‌بری - چای ترش - شاتوت یخی",
+    price: "۱۳۴,۰۰۰ تومان",
+    image: ""
+  },
+
+  {
+    name: "گل گاوزبان",
+    description: "",
+    price: "۱۶۹,۰۰۰ تومان",
+    image: ""
+  },
+
+  {
+    name: "چای سبز",
+    description: "",
+    price: "۱۰۴,۰۰۰ تومان",
+    image: ""
+  },
+
+  {
+    name: "دمنوش چای و نعنا عسل",
+    description: "",
+    price: "۱۳۴,۰۰۰ تومان",
+    image: ""
+  },
+
+  {
+    name: "دمنوش دل اروم",
+    description:
+      "چای ترش - گل گاوزبان - زست پرتقال",
+    price: "۲۳۰,۰۰۰ تومان",
+    image: ""
+  },
+
+  {
+    name: "دمنوش آرامش",
+    description:
+      "گل گاوزبان - سنبل‌الطیب - لیمو - نعنا",
+    price: "۲۱۵,۰۰۰ تومان",
+    image: ""
+  },
+
+  {
+    name: "دمنوش محبت",
+    description:
+      "چای ترش - گل محمدی - زعفران - دارچین - وانیل",
+    price: "۲۳۹,۰۰۰ تومان",
+    image: ""
+  },
+
+  {
+    name: "دمنوش آفتاب",
+    description:
+      "پوست پرتقال - زنجبیل - چوب دارچین - وانیل",
+    price: "۲۱۹,۰۰۰ تومان",
+    image: ""
+  },
+
+  {
+    name: "دمنوش رویا",
+    description:
+      "بابونه - گل محمدی - زعفران",
+    price: "۲۲۵,۰۰۰ تومان",
+    image: ""
+  }
+
+];
+
+
+/* =========================================================
+   پاستا
+========================================================= */
+
+menu["پاستا"] = [
+
+  {
+    name: "پاستا آلفردو با گوشت گوساله",
+    description:
+      "پنه - برش گوشت پاستایی - قارچ - پیازچه - سس آلفردو",
+    price: "۹۹۹,۰۰۰ تومان",
+    image: ""
+  },
+
+  {
+    name: "پاستا آلفردو با مرغ گریل",
+    description:
+      "پنه - سینه مرغ گریل - قارچ - پنیر پارمسان - سس آلفردو",
+    price: "۸۱۹,۰۰۰ تومان",
+    image: ""
+  },
+
+  {
+    name: "پاستا آلفردو با مرغ سوخاری",
+    description:
+      "پنه - رول سوخاری - قارچ - سس آلفردو",
+    price: "۸۹۹,۰۰۰ تومان",
+    image: ""
+  },
+
+  {
+    name: "چیکن پارمسان فتوچینی",
+    description:
+      "فتوچینی آماده‌سازی شده - سس مارینارا - سس بوفالو",
+    price: "۷۰۹,۰۰۰ تومان",
+    image: ""
+  }
+
+];
+
+
+/* =========================================================
+   دسته‌های هنوز تکمیل نشده
+========================================================= */
+
+/*
+  اسموتی        ✓
+  بشقاب اصلی    ✓
+  بستنی         ✓
+  قهوه سرد      ✓
+  ساندویچ       ✓
+  قهوه گرم      ✓
+  برگر          ✓
+  چای و دمنوش   ✓
+  پاستا         ✓
+
+  دسته‌های زیر فعلاً خالی هستند:
+
+  شیک
+  پیش غذا
+  ماکتل
+  سالاد
+  ماکتل‌های استوایی
+  نان
+  نوشیدنی
+  کیک و دسر
+  شربت و عرقیجات
+  نوشیدنی‌های فیزی
+  تولد
+  فراپاچینو
+  صبحانه
+  نوشیدنی‌های گرم
+*/
 
 
 /* =========================================================
@@ -424,54 +989,7 @@ function toPersianNumber(value) {
 
 
 /* =========================================================
-   نمایش دسته‌بندی‌ها
-========================================================= */
-
-function renderCategories() {
-
-  categoryScroll.innerHTML = "";
-
-  categories.forEach(category => {
-
-    const button =
-      document.createElement("button");
-
-    button.type = "button";
-    button.className = "category-btn";
-
-    button.textContent = category;
-
-    if (category === activeCategory) {
-      button.classList.add("active");
-    }
-
-    button.addEventListener("click", () => {
-
-      activeCategory = category;
-
-      searchTerm = "";
-      searchInput.value = "";
-
-      renderCategories();
-      renderProducts();
-
-      button.scrollIntoView({
-        behavior: "smooth",
-        block: "nearest",
-        inline: "center"
-      });
-
-    });
-
-    categoryScroll.appendChild(button);
-
-  });
-
-}
-
-
-/* =========================================================
-   فیلتر
+   فیلتر آیتم‌ها
 ========================================================= */
 
 function filterItems(items) {
@@ -499,7 +1017,7 @@ function filterItems(items) {
 
 
 /* =========================================================
-   ساخت کارت محصول
+   ساخت کارت
 ========================================================= */
 
 function createProductCard(item) {
@@ -507,8 +1025,7 @@ function createProductCard(item) {
   const card =
     document.createElement("article");
 
-  card.className =
-    "product-card";
+  card.className = "product-card";
 
 
   if (item.unavailable) {
@@ -651,6 +1168,58 @@ function createProductCard(item) {
 
 
 /* =========================================================
+   نمایش دسته‌بندی‌ها
+========================================================= */
+
+function renderCategories() {
+
+  categoryScroll.innerHTML = "";
+
+  categories.forEach(category => {
+
+    const button =
+      document.createElement("button");
+
+    button.type = "button";
+    button.className = "category-btn";
+
+    button.textContent =
+      category;
+
+
+    if (category === activeCategory) {
+      button.classList.add("active");
+    }
+
+
+    button.addEventListener("click", () => {
+
+      activeCategory =
+        category;
+
+      searchTerm = "";
+      searchInput.value = "";
+
+      renderCategories();
+      renderProducts();
+
+      button.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+        inline: "center"
+      });
+
+    });
+
+
+    categoryScroll.appendChild(button);
+
+  });
+
+}
+
+
+/* =========================================================
    نمایش محصولات
 ========================================================= */
 
@@ -671,15 +1240,22 @@ function renderProducts() {
     let totalItems = 0;
 
 
-    /* تک نفره */
-
-    const singleItems =
-      filterItems(
-        menu["پیتزا"].single.items
-      );
+    const pizzaSections = [
+      menu["پیتزا"].single,
+      menu["پیتزا"].double
+    ];
 
 
-    if (singleItems.length > 0) {
+    pizzaSections.forEach(section => {
+
+      const items =
+        filterItems(section.items);
+
+
+      if (items.length === 0) {
+        return;
+      }
+
 
       const title =
         document.createElement("h3");
@@ -688,12 +1264,12 @@ function renderProducts() {
         "pizza-section-title";
 
       title.textContent =
-        menu["پیتزا"].single.title;
+        section.title;
 
       productsEl.appendChild(title);
 
 
-      singleItems.forEach(item => {
+      items.forEach(item => {
 
         productsEl.appendChild(
           createProductCard(item)
@@ -703,46 +1279,9 @@ function renderProducts() {
 
 
       totalItems +=
-        singleItems.length;
+        items.length;
 
-    }
-
-
-    /* دو نفره */
-
-    const doubleItems =
-      filterItems(
-        menu["پیتزا"].double.items
-      );
-
-
-    if (doubleItems.length > 0) {
-
-      const title =
-        document.createElement("h3");
-
-      title.className =
-        "pizza-section-title";
-
-      title.textContent =
-        menu["پیتزا"].double.title;
-
-      productsEl.appendChild(title);
-
-
-      doubleItems.forEach(item => {
-
-        productsEl.appendChild(
-          createProductCard(item)
-        );
-
-      });
-
-
-      totalItems +=
-        doubleItems.length;
-
-    }
+    });
 
 
     emptyState.hidden =
@@ -753,6 +1292,145 @@ function renderProducts() {
       totalItems
         ? `${toPersianNumber(totalItems)} مورد`
         : "";
+
+
+    return;
+
+  }
+
+
+  /* =======================================================
+     قهوه سرد
+  ======================================================= */
+
+  if (activeCategory === "قهوه سرد") {
+
+    let totalItems = 0;
+
+
+    const sections = [
+      menu["قهوه سرد"].espressoBar,
+      menu["قهوه سرد"].matchaBar
+    ];
+
+
+    sections.forEach(section => {
+
+      const items =
+        filterItems(section.items);
+
+
+      if (items.length === 0) {
+        return;
+      }
+
+
+      const title =
+        document.createElement("h3");
+
+      title.className =
+        "pizza-section-title";
+
+      title.textContent =
+        section.title;
+
+      productsEl.appendChild(title);
+
+
+      items.forEach(item => {
+
+        productsEl.appendChild(
+          createProductCard(item)
+        );
+
+      });
+
+
+      totalItems +=
+        items.length;
+
+    });
+
+
+    emptyState.hidden =
+      totalItems !== 0;
+
+
+    itemCount.textContent =
+      totalItems
+        ? `${toPersianNumber(totalItems)} مورد`
+        : "";
+
+
+    return;
+
+  }
+
+
+  /* =======================================================
+     قهوه گرم
+  ======================================================= */
+
+  if (activeCategory === "قهوه گرم") {
+
+    let totalItems = 0;
+
+
+    const sections = [
+      menu["قهوه گرم"].espresso,
+      menu["قهوه گرم"].brewedCoffee,
+      menu["قهوه گرم"].milkCoffee,
+      menu["قهوه گرم"].syrups
+    ];
+
+
+    sections.forEach(section => {
+
+      const items =
+        filterItems(section.items);
+
+
+      if (items.length === 0) {
+        return;
+      }
+
+
+      const title =
+        document.createElement("h3");
+
+      title.className =
+        "pizza-section-title";
+
+      title.textContent =
+        section.title;
+
+      productsEl.appendChild(title);
+
+
+      items.forEach(item => {
+
+        productsEl.appendChild(
+          createProductCard(item)
+        );
+
+      });
+
+
+      totalItems +=
+        items.length;
+
+    });
+
+
+    emptyState.hidden =
+      totalItems !== 0;
+
+
+    itemCount.textContent =
+      totalItems
+        ? `${toPersianNumber(totalItems)} مورد`
+        : "";
+
 
     return;
 
@@ -801,8 +1479,10 @@ searchToggle.addEventListener(
     const isHidden =
       searchPanel.hidden;
 
+
     searchPanel.hidden =
       !isHidden;
+
 
     searchToggle.setAttribute(
       "aria-expanded",
@@ -856,7 +1536,43 @@ clearSearch.addEventListener(
 
 
 /* =========================================================
-   شروع سایت
+   تست اطلاعات
+========================================================= */
+
+console.log(
+  "پیتزاهای تک نفره:",
+  menu["پیتزا"].single.items.length
+);
+
+console.log(
+  "پیتزاهای دو نفره:",
+  menu["پیتزا"].double.items.length
+);
+
+console.log(
+  "مجموع پیتزاها:",
+  menu["پیتزا"].single.items.length +
+  menu["پیتزا"].double.items.length
+);
+
+console.log(
+  "اسموتی:",
+  menu["اسموتی"].length
+);
+
+console.log(
+  "بشقاب اصلی:",
+  menu["بشقاب اصلی"].length
+);
+
+console.log(
+  "پاستا:",
+  menu["پاستا"].length
+);
+
+
+/* =========================================================
+   اجرای اولیه
 ========================================================= */
 
 renderCategories();
