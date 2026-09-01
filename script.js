@@ -108,6 +108,29 @@ menu["پلیت رژیمی"] = [
 
 ];
 
+menu["آبمیوه"] = [
+  {
+    name: "ملون کولر",
+    description: "آب طالبی - یخ - بستنی",
+    price: "۳۰۰,۰۰۰ تومان",
+    image: ""
+  },
+
+  {
+    name: "آب هندوانه طبیعی",
+    description: "",
+    price: "۲۱۵,۰۰۰ تومان",
+    image: ""
+  },
+
+  {
+    name: "آب پرتقال",
+    description: "",
+    price: "ناموجود",
+    image: "",
+    unavailable: true
+  }
+];
 
 let activeCategory = "پلیت رژیمی";
 let searchTerm = "";
