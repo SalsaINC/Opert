@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f3ec">
+  <meta name="description" content="منوی دیجیتال کافه اوپرت">
+  <title>کافه اوپرت | منو</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <div class="logo-placeholder" aria-label="جای لوگوی اوپرت">OPERT</div>
+      <div>
+        <h1>اوپرت</h1>
+        <p>منوی کافه</p>
+      </div>
+    </div>
+
+    <button class="search-toggle" id="searchToggle" aria-label="باز کردن جستجو" aria-expanded="false">
+      <span>⌕</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">OPERT CAFE</p>
+      <h2>انتخاب کن، لذت ببر.</h2>
+      <p class="hero-text">منوی دیجیتال کافه اوپرت</p>
+    </section>
+
+    <section class="search-panel" id="searchPanel" hidden>
+      <label for="searchInput">جستجو در منو</label>
+      <div class="search-box">
+        <span>⌕</span>
+        <input id="searchInput" type="search" placeholder="مثلاً اسپرسو، پیتزا..." autocomplete="off">
+        <button id="clearSearch" type="button" aria-label="پاک کردن جستجو">×</button>
+      </div>
+    </section>
+
+    <nav class="categories" aria-label="دسته‌بندی‌های منو">
+      <div class="category-scroll" id="categoryScroll"></div>
+    </nav>
+
+    <section class="menu-section">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">MENU</p>
+          <h2 id="sectionTitle">قهوه گرم</h2>
+        </div>
+        <span class="item-count" id="itemCount"></span>
+      </div>
+
+      <div class="products" id="products"></div>
+      <div class="empty-state" id="emptyState" hidden>
+        موردی برای نمایش پیدا نشد.
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-mark">OPERT</div>
+    <p>کافه اوپرت</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
