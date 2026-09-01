@@ -362,3 +362,15 @@ button {
 [hidden] {
   display: none !important;
 }
+.featured-badge {
+  position: absolute;
+  top: 9px;
+  right: 9px;
+  padding: 4px 7px;
+  border-radius: 999px;
+  background: rgba(255, 253, 249, .94);
+  color: var(--text);
+  font-size: 8px;
+  font-weight: 800;
+  box-shadow: 0 4px 12px rgba(43, 35, 27, .12);
+}
