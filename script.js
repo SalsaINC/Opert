@@ -1,3 +1,12 @@
+/* =========================================================
+   OPERT CAFE - MENU
+========================================================= */
+
+
+/* =========================================================
+   دسته‌بندی‌ها
+========================================================= */
+
 const categories = [
   "پلیت رژیمی",
   "آبمیوه",
@@ -27,6 +36,11 @@ const categories = [
   "نوشیدنی‌های گرم"
 ];
 
+
+/* =========================================================
+   ساخت منو
+========================================================= */
+
 const menu = {};
 
 categories.forEach(category => {
@@ -34,11 +48,12 @@ categories.forEach(category => {
 });
 
 
-/* =========================
+/* =========================================================
    پلیت رژیمی
-========================= */
+========================================================= */
 
 menu["پلیت رژیمی"] = [
+
   {
     name: "پلیت وگن",
     description:
@@ -104,14 +119,16 @@ menu["پلیت رژیمی"] = [
     price: "۵۸۹,۰۰۰ تومان",
     image: ""
   }
+
 ];
 
 
-/* =========================
+/* =========================================================
    آبمیوه
-========================= */
+========================================================= */
 
 menu["آبمیوه"] = [
+
   {
     name: "ملون کولر",
     description: "آب طالبی - یخ - بستنی - …",
@@ -133,16 +150,20 @@ menu["آبمیوه"] = [
     image: "",
     unavailable: true
   }
+
 ];
 
 
-/* =========================
+/* =========================================================
    پیتزا
-========================= */
+========================================================= */
 
 menu["پیتزا"] = {
 
+  /* ---------- تک نفره ---------- */
+
   single: {
+
     title: "پیتزاهای تک نفره",
 
     items: [
@@ -200,7 +221,10 @@ menu["پیتزا"] = {
   },
 
 
+  /* ---------- دو نفره ---------- */
+
   double: {
+
     title: "پیتزاهای دو نفره",
 
     items: [
@@ -264,24 +288,34 @@ menu["پیتزا"] = {
         price: "",
         image: ""
       }
-console.log(menu["پیتزا"].double.items.length);
+
     ]
   }
 
 };
 
 
-/* =========================
-   وضعیت سایت
-========================= */
+/* =========================================================
+   تست تعداد پیتزاهای دو نفره
+========================================================= */
+
+console.log(
+  "تعداد پیتزاهای دو نفره:",
+  menu["پیتزا"].double.items.length
+);
+
+
+/* =========================================================
+   وضعیت
+========================================================= */
 
 let activeCategory = "پلیت رژیمی";
 let searchTerm = "";
 
 
-/* =========================
-   عناصر صفحه
-========================= */
+/* =========================================================
+   عناصر HTML
+========================================================= */
 
 const categoryScroll = document.getElementById("categoryScroll");
 const productsEl = document.getElementById("products");
@@ -295,9 +329,23 @@ const searchInput = document.getElementById("searchInput");
 const clearSearch = document.getElementById("clearSearch");
 
 
-/* =========================
+/* =========================================================
+   تبدیل عدد به فارسی
+========================================================= */
+
+function toPersianNumber(value) {
+
+  return String(value).replace(
+    /\d/g,
+    digit => "۰۱۲۳۴۵۶۷۸۹"[digit]
+  );
+
+}
+
+
+/* =========================================================
    دسته‌بندی‌ها
-========================= */
+========================================================= */
 
 function renderCategories() {
 
@@ -307,8 +355,8 @@ function renderCategories() {
 
     const button = document.createElement("button");
 
-    button.className = "category-btn";
     button.type = "button";
+    button.className = "category-btn";
     button.textContent = category;
 
     if (category === activeCategory) {
@@ -340,9 +388,9 @@ function renderCategories() {
 }
 
 
-/* =========================
-   فیلتر محصولات
-========================= */
+/* =========================================================
+   جستجو در آیتم‌ها
+========================================================= */
 
 function filterItems(items) {
 
@@ -367,29 +415,9 @@ function filterItems(items) {
 }
 
 
-/* =========================
-   محصولات قابل نمایش
-========================= */
-
-function getVisibleProducts() {
-
-  if (activeCategory === "پیتزا") {
-
-    return [
-      ...filterItems(menu["پیتزا"].single.items),
-      ...filterItems(menu["پیتزا"].double.items)
-    ];
-
-  }
-
-  return filterItems(menu[activeCategory] || []);
-
-}
-
-
-/* =========================
+/* =========================================================
    ساخت کارت محصول
-========================= */
+========================================================= */
 
 function createProductCard(item) {
 
@@ -397,16 +425,18 @@ function createProductCard(item) {
 
   card.className = "product-card";
 
+
   if (item.unavailable) {
     card.classList.add("unavailable");
   }
 
 
-  /* عکس */
+  /* تصویر */
 
   const image = document.createElement("div");
 
   image.className = "product-image";
+
 
   if (item.image) {
 
@@ -417,8 +447,10 @@ function createProductCard(item) {
     img.loading = "lazy";
 
     img.addEventListener("error", () => {
+
       image.innerHTML =
         '<div class="image-placeholder">OPERT</div>';
+
     });
 
     image.appendChild(img);
@@ -431,7 +463,7 @@ function createProductCard(item) {
   }
 
 
-  /* پیشنهاد مجموعه */
+  /* برچسب پیشنهاد */
 
   if (item.featured) {
 
@@ -445,7 +477,7 @@ function createProductCard(item) {
   }
 
 
-  /* ناموجود */
+  /* برچسب ناموجود */
 
   if (item.unavailable) {
 
@@ -499,54 +531,50 @@ function createProductCard(item) {
   card.appendChild(image);
   card.appendChild(info);
 
+
   return card;
 
 }
 
 
-/* =========================
+/* =========================================================
    نمایش محصولات
-========================= */
+========================================================= */
 
 function renderProducts() {
 
-  sectionTitle.textContent = activeCategory;
-
   productsEl.innerHTML = "";
 
+  sectionTitle.textContent = activeCategory;
 
-  /* =====================
+
+  /* =======================================================
      پیتزا
-  ===================== */
+  ======================================================= */
 
   if (activeCategory === "پیتزا") {
-
-    const sections = [
-      menu["پیتزا"].single,
-      menu["پیتزا"].double
-    ];
 
     let totalItems = 0;
 
 
-    sections.forEach(section => {
+    /* تک نفره */
 
-      const items = filterItems(section.items);
+    const singleItems =
+      filterItems(menu["پیتزا"].single.items);
 
-      if (items.length === 0) {
-        return;
-      }
 
+    if (singleItems.length > 0) {
 
       const title = document.createElement("h3");
 
       title.className = "pizza-section-title";
-      title.textContent = section.title;
+      title.textContent =
+        menu["پیتزا"].single.title;
 
       productsEl.appendChild(title);
 
 
-      items.forEach(item => {
+      singleItems.forEach(item => {
 
         productsEl.appendChild(
           createProductCard(item)
@@ -555,62 +583,95 @@ function renderProducts() {
       });
 
 
-      totalItems += items.length;
+      totalItems += singleItems.length;
 
-    });
+    }
 
 
-    emptyState.hidden = totalItems !== 0;
+    /* دو نفره */
 
-    itemCount.textContent = totalItems
-      ? `${toPersianNumber(totalItems)} مورد`
-      : "";
+    const doubleItems =
+      filterItems(menu["پیتزا"].double.items);
+
+
+    if (doubleItems.length > 0) {
+
+      const title = document.createElement("h3");
+
+      title.className = "pizza-section-title";
+      title.textContent =
+        menu["پیتزا"].double.title;
+
+      productsEl.appendChild(title);
+
+
+      doubleItems.forEach(item => {
+
+        productsEl.appendChild(
+          createProductCard(item)
+        );
+
+      });
+
+
+      totalItems += doubleItems.length;
+
+    }
+
+
+    emptyState.hidden =
+      totalItems !== 0;
+
+
+    itemCount.textContent =
+      totalItems
+        ? `${toPersianNumber(totalItems)} مورد`
+        : "";
+
 
     return;
 
   }
 
 
-  /* =====================
-     دسته‌های معمولی
-  ===================== */
+  /* =======================================================
+     دسته‌بندی‌های معمولی
+  ======================================================= */
 
-  const items = getVisibleProducts();
-
-  emptyState.hidden = items.length !== 0;
-
-  items.forEach(item => {
-
-    productsEl.appendChild(
-      createProductCard(item)
-    );
-
-  });
-
-  itemCount.textContent = items.length
-    ? `${toPersianNumber(items.length)} مورد`
-    : "";
-
-}
+  const items =
+    filterItems(menu[activeCategory] || []);
 
 
-/* =========================
-   تبدیل اعداد به فارسی
-========================= */
+  if (items.length === 0) {
 
-function toPersianNumber(value) {
+    emptyState.hidden = false;
 
-  return String(value).replace(
-    /\d/g,
-    digit => "۰۱۲۳۴۵۶۷۸۹"[digit]
-  );
+  } else {
+
+    emptyState.hidden = true;
+
+    items.forEach(item => {
+
+      productsEl.appendChild(
+        createProductCard(item)
+      );
+
+    });
+
+  }
+
+
+  itemCount.textContent =
+    items.length
+      ? `${toPersianNumber(items.length)} مورد`
+      : "";
 
 }
 
 
-/* =========================
-   جستجو
-========================= */
+/* =========================================================
+   دکمه جستجو
+========================================================= */
 
 searchToggle.addEventListener("click", () => {
 
@@ -640,6 +701,10 @@ searchToggle.addEventListener("click", () => {
 });
 
 
+/* =========================================================
+   ورودی جستجو
+========================================================= */
+
 searchInput.addEventListener("input", event => {
 
   searchTerm = event.target.value;
@@ -648,6 +713,10 @@ searchInput.addEventListener("input", event => {
 
 });
 
+
+/* =========================================================
+   پاک کردن جستجو
+========================================================= */
 
 clearSearch.addEventListener("click", () => {
 
@@ -661,9 +730,30 @@ clearSearch.addEventListener("click", () => {
 });
 
 
-/* =========================
-   شروع سایت
-========================= */
+/* =========================================================
+   اجرای اولیه
+========================================================= */
 
 renderCategories();
 renderProducts();
+
+
+/* =========================================================
+   تست نهایی
+========================================================= */
+
+console.log(
+  "پیتزاهای تک نفره:",
+  menu["پیتزا"].single.items.length
+);
+
+console.log(
+  "پیتزاهای دو نفره:",
+  menu["پیتزا"].double.items.length
+);
+
+console.log(
+  "مجموع پیتزاها:",
+  menu["پیتزا"].single.items.length +
+  menu["پیتزا"].double.items.length
+);
