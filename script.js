@@ -264,7 +264,7 @@ menu["پیتزا"] = {
         price: "",
         image: ""
       }
-
+console.log(menu["پیتزا"].double.items.length);
     ]
   }
 
