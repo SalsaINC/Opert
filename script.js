@@ -334,14 +334,29 @@ function renderCategories() {
 ========================= */
 
 function getVisibleProducts() {
+  if (activeCategory === "پیتزا") {
+    return [
+      ...(menu["پیتزا"].single.items || []),
+      ...(menu["پیتزا"].double.items || [])
+    ];
+  }
 
-  const items =
-    menu[activeCategory] || [];
+  const items = menu[activeCategory] || [];
 
   if (!searchTerm.trim()) {
     return items;
   }
 
+  const query = searchTerm.trim().toLocaleLowerCase("fa-IR");
+
+  return items.filter(item => {
+    const text =
+      `${item.name} ${item.description}`
+        .toLocaleLowerCase("fa-IR");
+
+    return text.includes(query);
+  });
+}
   const query =
     searchTerm
       .trim()
